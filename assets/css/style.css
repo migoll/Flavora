@@ -1,0 +1,89 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance
+}
+
+p {
+  text-wrap: pretty;
+  max-width: 75ch
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+* {
+  margin: 0;
+  padding: 0
+}
+
+html {
+  color-scheme: light
+}
+
+body {
+  min-height: 100svh
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%
+}
+
+@media(prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem
+  }
+}
+
+header {
+  background: orange;
+  color: #fff;
+  text-align: center;
+  padding-block: 2rem
+}
+
+.container {
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3);
+  border-radius: 6px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr)
+}
+
+article {
+  padding: 1rem;
+  border: 2px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 1rem
+}
+
+article h4 {
+  text-align: center
+}
+
+article .excerpt {
+  color: #303030;
+  padding-left: 1rem
+}
