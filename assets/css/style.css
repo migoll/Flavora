@@ -48,7 +48,7 @@ video {
 }
 
 header {
-  background: orange;
+  background: rgb(8, 3, 38);
   color: #fff;
   text-align: center;
   padding-block: 2rem
@@ -86,4 +86,8 @@ article h4 {
 article .excerpt {
   color: #303030;
   padding-left: 1rem
+}
+
+recipeStyling {
+  background: black;
 }
