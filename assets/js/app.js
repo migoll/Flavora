@@ -52,16 +52,13 @@ export function renderRecipes(recipes, containerEl, numToShow) {
     const preperationLiEl = document.createElement("li");
     const ingredientLiEl = document.createElement("li");
 
-    const imageEl = document.createElement("img");
-
     // add content to elements
     titleEl.textContent = recipe.acf.title;
     aboutEl.textContent = recipe.acf.about;
     ingredientLiEl.textContent = recipe.acf.ingredients;
     preperationLiEl.textContent = recipe.acf.preperation;
-    imageEl.src = recipe.acf.image.url;
 
-    recipeEl.classList.add(".recipeStyling");
+    recipeEl.classList.add("recipeStyling");
 
     //append elements into containers
     recipeEl.appendChild(titleEl);
@@ -73,7 +70,12 @@ export function renderRecipes(recipes, containerEl, numToShow) {
 
     ingredientEl.appendChild(preperationLiEl);
     preperationEl.appendChild(ingredientLiEl);
-    contentEl.appendChild(imageEl);
+
+    if (recipe.acf.image) {
+      const imageEl = document.createElement("img");
+      imageEl.src = recipe.acf.image.url;
+      contentEl.appendChild(imageEl);
+    }
 
     containerEl.appendChild(recipeEl);
   });

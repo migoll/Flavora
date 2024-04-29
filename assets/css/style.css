@@ -1,35 +1,43 @@
+/* general styling */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  text-wrap: balance
+  text-wrap: balance;
 }
 
-p {
+h1 {
+  font-size: 5rem;
+}
+
+p,
+li {
   text-wrap: pretty;
-  max-width: 75ch
+  max-width: 75ch;
+  /*   font-size: 1.375rem; */
 }
 
 *,
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 * {
   margin: 0;
-  padding: 0
-}
-
-html {
-  color-scheme: light
+  padding: 0;
 }
 
 body {
-  min-height: 100svh
+  min-height: 100svh;
+  background-color: #faf6f5;
+  font-family: "Overpass", sans-serif;
 }
 
 img,
@@ -37,57 +45,117 @@ picture,
 svg,
 video {
   display: block;
-  max-width: 100%
+  max-width: 100%;
 }
 
-@media(prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   :has(:target) {
     scroll-behavior: smooth;
-    scroll-padding-top: 2rem
+    scroll-padding-top: 2rem;
   }
 }
 
+/* header */
+
 header {
-  background: rgb(8, 3, 38);
+  background: #ff5000;
   color: #fff;
-  text-align: center;
-  padding-block: 2rem
-}
-
-.container {
-  max-width: 800px;
-  margin: 1rem auto;
-  padding: 1rem;
-  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3);
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3);
-  border-radius: 6px;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, 1fr)
-}
-
-article {
-  padding: 1rem;
-  border: 2px solid red;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  min-height: 7.5rem;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  gap: 1rem
+  text-align: center;
+  align-items: center;
 }
 
-article h4 {
-  text-align: center
+.header-container {
+  max-width: 1440px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 auto;
 }
 
-article .excerpt {
-  color: #303030;
-  padding-left: 1rem
+nav ul,
+.headerIcons {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
-recipeStyling {
-  background: black;
+.headerIcons {
+  gap: 0.5rem;
+}
+
+nav ul li a,
+header p {
+  text-decoration: none;
+  color: #faf6f5;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+.headerIcons a {
+  color: white;
+}
+
+.logo p {
+  font-size: 3.5rem;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+nav {
+  flex-grow: 1;
+}
+
+nav ul li {
+  margin: 0 1.5rem;
+}
+
+/* footer */
+footer {
+  background-color: #ff5000;
+}
+
+/* wrapper styling */
+.wrapper {
+  /*  max-width: 1440px; */
+}
+
+.containerPopularRecipes {
+  display: flex;
+}
+.containerQuickAndEasy,
+.containerEasterAndPassover,
+.containerNewestArticles {
+  display: flex;
+}
+
+/* recipe card styling */
+
+.recipeStyling {
+  background: #efefef;
+  border-radius: 2px;
+  border-color: rgb(80, 74, 74);
+  border-style: solid;
+  margin: 0.5rem;
+  padding: 30px 30px;
+}
+
+.recipeStyling img {
+  width: 463px;
+  height: 280px;
+}
+
+.recipeStyling h2 {
+  font-size: 2.25rem;
+  color: #236a05;
 }
