@@ -1,3 +1,16 @@
+import { getToken, getPrivateRecipesByTags, renderRecipes } from "./app.js";
+
+// Call the getToken function to create subsite specific containers, and render recipes into the containers
+getToken().then(() => {
+  const recipesEl = document.querySelector(".recipes");
+
+  // Render recipes from different categories into corresponding containers
+  getPrivateRecipesByTags("9, 10").then((recipes) => {
+    renderRecipes(recipes, recipesEl, 1000);
+  });
+});
+
+/*
 const baseUrl = "https://api.chrlund.com/wp-json/wp/v2/";
 const recipeCategoryId = 3;
 
@@ -78,3 +91,5 @@ function getPrivateRecipes(){
 }
 
 // getAllRecipes();
+
+*/

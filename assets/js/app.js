@@ -1,44 +1,47 @@
 const baseUrl = "https://api.chrlund.com/wp-json/wp/v2/";
-const recipeCategoryId = 3;
 
 // get token from backend
-export function getToken(){
+export function getToken() {
   const loginInfo = {
     username: "api-user",
-    password: "cYqm dOLp Y8d1 JAEa ioaZ EEEc"
+    password: "cYqm dOLp Y8d1 JAEa ioaZ EEEc",
   };
 
   return fetch("https://api.chrlund.com/wp-json/jwt-auth/v1/token", {
-    method: "POST", 
+    method: "POST",
     headers: {
-      "Content-Type" : "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(loginInfo)
+    body: JSON.stringify(loginInfo),
   })
-  .then(res => res.json())
-  .then(data => {
-    console.log(data);
-    sessionStorage.setItem("myToken", data.data.token);
-  })
-  .catch(err => console.log("Fejl:", err));
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      sessionStorage.setItem("myToken", data.data.token);
+    })
+    .catch((err) => console.log("Fejl:", err));
 }
 
 // get all recipes
-export function getPrivateRecipes(){
-  return fetch(baseUrl + `posts?status=private&categories=${recipeCategoryId}&per_page=30`, {
-    headers: {
-      Authorization: "Bearer " + sessionStorage.getItem("myToken"),
+export function getPrivateRecipesByCategory(categoryId) {
+  return fetch(
+    baseUrl +
+      `posts?acf_format=standard&status=private&categories=${categoryId}&per_page=30`,
+    {
+      headers: {
+        Authorization: "Bearer " + sessionStorage.getItem("myToken"),
+      },
     }
-  })
-  .then(res => res.json())
-  .catch(err => console.log("fejl!:", err))
+  )
+    .then((res) => res.json())
+    .catch((err) => console.log("error has occured!:", err));
 }
 
 // render recipes
 export function renderRecipes(recipes, containerEl, numToShow) {
   containerEl.innerHTML = "";
 
-  recipes.slice(0, numToShow).forEach(recipe => {
+  recipes.slice(0, numToShow).forEach((recipe) => {
     const recipeEl = document.createElement("div");
     const titleEl = document.createElement("h2");
     const contentEl = document.createElement("div");
@@ -46,16 +49,19 @@ export function renderRecipes(recipes, containerEl, numToShow) {
 
     const ingredientEl = document.createElement("ul");
     const preperationEl = document.createElement("ol");
-    const preperationLiEl = document.createElement("li")
-    const ingredientLiEl = document.createElement("li")
+    const preperationLiEl = document.createElement("li");
+    const ingredientLiEl = document.createElement("li");
+
+    const imageEl = document.createElement("img");
 
     // add content to elements
-    titleEl.textContent = recipe.acf.title
-    aboutEl.textContent = recipe.acf.about
-    ingredientLiEl.textContent = recipe.acf.ingredients
-    preperationLiEl.textContent = recipe.acf.preperation
-    
-    recipeEl.classList.add(".recipeStyling")
+    titleEl.textContent = recipe.acf.title;
+    aboutEl.textContent = recipe.acf.about;
+    ingredientLiEl.textContent = recipe.acf.ingredients;
+    preperationLiEl.textContent = recipe.acf.preperation;
+    imageEl.src = recipe.acf.image.url;
+
+    recipeEl.classList.add(".recipeStyling");
 
     //append elements into containers
     recipeEl.appendChild(titleEl);
@@ -67,8 +73,22 @@ export function renderRecipes(recipes, containerEl, numToShow) {
 
     ingredientEl.appendChild(preperationLiEl);
     preperationEl.appendChild(ingredientLiEl);
+    contentEl.appendChild(imageEl);
 
-
-    containerEl.appendChild(recipeEl)
+    containerEl.appendChild(recipeEl);
   });
+}
+
+export function getPrivateRecipesByTags(tagId) {
+  return fetch(
+    baseUrl +
+      `posts?acf_format=standard&status=private&tags=${tagId}&per_page=30`,
+    {
+      headers: {
+        Authorization: "Bearer " + sessionStorage.getItem("myToken"),
+      },
+    }
+  )
+    .then((res) => res.json())
+    .catch((err) => console.log("error has occured!:", err));
 }
