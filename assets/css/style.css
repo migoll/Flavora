@@ -12,14 +12,14 @@ h6 {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 2rem;
 }
 
 p,
 li {
   text-wrap: pretty;
   max-width: 75ch;
-  /*   font-size: 1.375rem; */
+  font-size: 1rem;
 }
 
 *,
@@ -60,7 +60,7 @@ video {
 header {
   background: #ff5000;
   color: #fff;
-  min-height: 7.5rem;
+  min-height: 5rem;
   display: flex;
   text-align: center;
   align-items: center;
@@ -73,6 +73,7 @@ header {
   align-items: center;
   flex-grow: 1;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 nav ul,
@@ -92,7 +93,7 @@ nav ul li a,
 header p {
   text-decoration: none;
   color: #faf6f5;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -105,7 +106,7 @@ nav a:hover {
 }
 
 .logo p {
-  font-size: 3.5rem;
+  font-size: 2rem;
 }
 
 .logo {
@@ -129,6 +130,8 @@ footer {
 .wrapper {
   /*  max-width: 1440px; */
 }
+
+.footer-content
 
 .containerPopularRecipes {
   display: flex;
@@ -156,6 +159,11 @@ footer {
 }
 
 .recipeStyling h2 {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   color: #236a05;
 }
+
+.recipeStyling ul {
+  list-style-type: none;
+}
+

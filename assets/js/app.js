@@ -38,7 +38,7 @@ export function getPrivateRecipesByCategory(categoryId) {
 }
 
 // render recipes
-export function renderRecipes(recipes, containerEl, numToShow) {
+export function renderRecipes(recipes, containerEl, numToShow, includeContent) {
   containerEl.innerHTML = "";
 
   recipes.slice(0, numToShow).forEach((recipe) => {
@@ -64,6 +64,7 @@ export function renderRecipes(recipes, containerEl, numToShow) {
     recipeEl.appendChild(titleEl);
     recipeEl.appendChild(contentEl);
 
+    
     contentEl.appendChild(aboutEl);
     contentEl.appendChild(ingredientEl);
     contentEl.appendChild(preperationEl);
@@ -74,7 +75,7 @@ export function renderRecipes(recipes, containerEl, numToShow) {
     if (recipe.acf.image) {
       const imageEl = document.createElement("img");
       imageEl.src = recipe.acf.image.url;
-      contentEl.appendChild(imageEl);
+      recipeEl.appendChild(imageEl);
     }
 
     containerEl.appendChild(recipeEl);
@@ -94,3 +95,11 @@ export function getPrivateRecipesByTags(tagId) {
     .then((res) => res.json())
     .catch((err) => console.log("error has occured!:", err));
 }
+
+
+
+//Tilføj includeContent boolean i renderRecipes, der enten er true (indholder alt indhold på recipes) eller false der kun giver få indhold
+
+// wrap en if omkring det indhold der skal være en del af includeContent
+
+//tilføj true eller false som renderRecipe parameter

@@ -1,4 +1,4 @@
-import { getToken, getPrivateRecipesByCategory, renderRecipes } from "./app.js";
+import { getToken, getPrivateRecipesByCategory, renderRecipes, includeContent } from "./app.js";
 
 // Call the getToken function to create subsite specific containers, and render recipes into the containers
 getToken().then(() => {
@@ -17,18 +17,18 @@ getToken().then(() => {
 
   // Render recipes from different categories into corresponding containers
   getPrivateRecipesByCategory(3).then((recipes) => {
-    renderRecipes(recipes, containerPopularRecipesEl, 4);
+    renderRecipes(recipes, containerPopularRecipesEl, 4), false;
   });
 
-  getPrivateRecipesByCategory(7).then((recipes) =>
-    renderRecipes(recipes, containerQuickAndEasyEl, 3)
-  );
+  getPrivateRecipesByCategory(7).then((recipes) => {
+    renderRecipes(recipes, containerQuickAndEasyEl, 3, false)
+});
 
-  getPrivateRecipesByCategory(6).then((recipes) =>
-    renderRecipes(recipes, containerEasterAndPassoverEl, 3)
-  );
+  getPrivateRecipesByCategory(6).then((recipes) => {
+    renderRecipes(recipes, containerEasterAndPassoverEl, 3, false)
+});
 
-  getPrivateRecipesByCategory(5).then((recipes) =>
-    renderRecipes(recipes, containerNewestArticlesEl, 3)
-  );
+  getPrivateRecipesByCategory(5).then((recipes) => {
+    renderRecipes(recipes, containerNewestArticlesEl, 3, false)
+});
 });
