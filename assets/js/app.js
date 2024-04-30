@@ -38,7 +38,7 @@ export function getPrivateRecipesByCategory(categoryId) {
 }
 
 // render recipes
-export function renderRecipes(recipes, containerEl, numToShow, includeContent) {
+export function renderRecipes(recipes, containerEl, numToShow) {
   containerEl.innerHTML = "";
 
   recipes.slice(0, numToShow).forEach((recipe) => {
