@@ -71,13 +71,10 @@ header {
 }
 
 .header-container {
-  max-width: 1440px;
   justify-content: space-between;
   display: flex;
   align-items: center;
   flex-grow: 1;
-  margin: 0 auto;
-  padding: 0 3rem;
 }
 
 nav ul,
@@ -125,49 +122,22 @@ nav ul li {
   margin: 0 1.5rem;
 }
 
-/* footer */
-footer {
-  background-color: #ff5000;
-}
-
-/* wrapper styling */
 .wrapper {
-  /*  max-width: 1440px; */
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1440px;
 }
 
 .wrapper h2 {
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
+  padding: 2rem 0 1rem;
 }
 
-.footer-content,
-.containerPopularRecipes {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.containerQuickAndEasy,
-.containerEasterAndPassover,
-.containerNewestArticles {
-  display: flex;
-  justify-content: center;
-}
-
-.containerSeperateQuickAndEasy {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.containerSeperateQuickAndEasy .recipeStyling {
-}
-
-.containerSeperateQuickAndEasy .recipeStyling img {
-  width: 430px;
-  height: 242px;
-  object-fit: cover;
-  object-position: center;
+.recipeList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 /* recipe card styling */
@@ -176,17 +146,13 @@ footer {
   display: flex;
   flex-direction: column;
   background: #efefef;
-  border-radius: 1px;
-  border-color: #e0dbdb;
-  border-style: solid;
-  margin: 0.5rem;
-  padding: 1rem 1rem;
   justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
 }
 
 .recipeStyling img {
-  width: 430px;
-  height: 242px;
+  aspect-ratio: 16/9;
   object-fit: cover;
   object-position: center;
 }
@@ -195,6 +161,7 @@ footer {
   font-size: 1.5rem;
   color: #236a05;
   max-width: 430px;
+  padding: 1rem;
 }
 
 .recipeStyling ul {
@@ -218,7 +185,7 @@ footer {
 
 #searchBar {
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -254,4 +221,178 @@ footer {
   color: white;
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+.articleH3 {
+  margin: 0 auto;
+}
+
+.containerPopularRecipes > a:first-child {
+  grid-column: 1 / span 3;
+  max-width: 80%;
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+/* footer */
+footer {
+  background-color: #ff5000;
+  color: #4e4e4e;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.user-info img {
+  color: #4e4e4e;
+}
+
+.user-info {
+  justify-content: center;
+}
+
+.user-info,
+.contact,
+.footer-icons {
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+}
+
+.about-us {
+  margin-top: 2rem;
+  width: 180px;
+  height: 50px;
+  border-width: 0;
+  border-radius: 35px;
+  background-color: #236a05;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  align-self: center;
+  margin-bottom: 1.5rem;
+}
+
+footer p {
+  font-size: 1.25rem;
+  color: white;
+  font-weight: 500;
+}
+
+.footer-icons,
+.contact {
+  gap: 1.5rem;
+}
+
+/* single recipe styling */
+.recipeStylingIncludeContent {
+  text-decoration: none;
+}
+.recipeStylingIncludeContent li,
+.recipeStylingIncludeContent p {
+  color: #4e4e4e;
+}
+.recipeStylingIncludeContent h3 {
+  color: #236a05;
+}
+
+.about-container {
+  max-width: 720px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 100%;
+  margin: 0 auto;
+  padding-block: 3rem;
+}
+.about {
+  padding-bottom: 2rem;
+}
+.about-container h1 {
+  font-size: 3rem;
+  color: #236a05;
+}
+
+.about p,
+.bonAppetit p,
+.about-info p {
+  padding-bottom: 0.5rem;
+}
+
+.about-info p span {
+  font-weight: bold;
+}
+.about-info p {
+  margin-block: 1.5rem;
+}
+
+.bonAppetit {
+  padding-bottom: 5rem;
+  text-align: right;
+}
+
+.articleH3 {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+/* Add this to your existing CSS */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+nav ul li {
+  margin: 0 1.5rem;
+  position: relative;
+}
+
+/* Additional styling for dropdown links */
+.dropdown-content a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.featured-video {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 16/9;
 }

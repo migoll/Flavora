@@ -7,21 +7,63 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="./assets/js/articles.js" type="module" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header>
-      <div class="header-container">
+      <div class="header-container wrapper">
         <div class="logo">
-          <p>Flavora</p>
+          <a href="./index.html"><p>Flavora</p></a>
         </div>
         <nav>
           <ul>
-            <li><a href="#">Recipes</a></li>
-            <li><a href="#">Meals</a></li>
-            <li><a href="#">Occasions</a></li>
-            <li><a href="#">Health & Diet</a></li>
-            <li><a href="#">Articles</a></li>
-            <li><a href="#">About Us</a></li>
+            <li class="dropdown">
+              <a href="#">Recipes</a>
+              <ul class="dropdown-content">
+                <li><a href="./quick&Easy.html">Quick & Easy</a></li>
+                <li><a href="#">One Pot Meals</a></li>
+                <li><a href="#">International Cuisine</a></li>
+                <li><a href="#">Air fryer</a></li>
+                <li><a href="#">View all</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Meals</a>
+              <ul class="dropdown-content">
+                <li><a href="#">Breakfast</a></li>
+                <li><a href="#">Launch</a></li>
+                <li><a href="#">Dinner</a></li>
+                <li><a href="#">Deserts</a></li>
+                <li><a href="#">Sides</a></li>
+                <li><a href="#">Snacks</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Occasions</a>
+              <ul class="dropdown-content">
+                <li><a href="./easter&Passover.html">Easter & Passover</a></li>
+                <li><a href="#">Christmas & New Years</a></li>
+                <li><a href="#">Thanksgiving</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Health & Diet</a>
+              <ul class="dropdown-content">
+                <li><a href="#">Low Calorie</a></li>
+                <li><a href="#">Diabetic Friendly</a></li>
+                <li><a href="#">Plantbased</a></li>
+                <li><a href="#">Gluten Free</a></li>
+                <li><a href="#">Lactose free</a></li>
+              </ul>
+            </li>
+            <li><a href="./articles.html">Articles</a></li>
+            <li><a href="./aboutUs.html">About Us</a></li>
           </ul>
         </nav>
         <div class="headerIcons">
@@ -36,7 +78,31 @@
     </header>
 
     <main>
-      <div class="container"></div>
+      <div class="wrapper">
+        <h2>Articles</h2>
+        <h3 class="articleH3">
+          Discover our articles covering cooking, recipes, and more culinary
+          delights!
+        </h3>
+        <div class="containerSeperateArticles recipeList"></div>
+      </div>
     </main>
+    <footer>
+      <button class="about-us">About Us</button>
+      <div class="footer-content">
+        <div class="footer-icons">
+          <i class="fa-brands fa-facebook" style="color: #ffffff"></i>
+          <i class="fa-brands fa-instagram" style="color: #ffffff"></i>
+          <i class="fa-brands fa-x-twitter" style="color: #ffffff"></i>
+        </div>
+        <div class="user-info">
+          <p>Flavora 2024</p>
+        </div>
+        <div class="contact">
+          <i class="fa-regular fa-envelope" style="color: #ffffff"></i>
+          <p>contact@flavora.com</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

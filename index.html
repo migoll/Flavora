@@ -17,18 +17,53 @@
   </head>
   <body>
     <header>
-      <div class="header-container">
+      <div class="header-container wrapper">
         <div class="logo">
-          <p>Flavora</p>
+          <a href="./index.html"><p>Flavora</p></a>
         </div>
         <nav>
           <ul>
-            <li><a href="#">Recipes</a></li>
-            <li><a href="#">Meals</a></li>
-            <li><a href="#">Occasions</a></li>
-            <li><a href="#">Health & Diet</a></li>
-            <li><a href="#">Articles</a></li>
-            <li><a href="#">About Us</a></li>
+            <li class="dropdown">
+              <a href="#">Recipes</a>
+              <ul class="dropdown-content">
+                <li><a href="./quick&Easy.html">Quick & Easy</a></li>
+                <li><a href="#">One Pot Meals</a></li>
+                <li><a href="#">International Cuisine</a></li>
+                <li><a href="#">Air fryer</a></li>
+                <li><a href="#">View all</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Meals</a>
+              <ul class="dropdown-content">
+                <li><a href="#">Breakfast</a></li>
+                <li><a href="#">Launch</a></li>
+                <li><a href="#">Dinner</a></li>
+                <li><a href="#">Deserts</a></li>
+                <li><a href="#">Sides</a></li>
+                <li><a href="#">Snacks</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Occasions</a>
+              <ul class="dropdown-content">
+                <li><a href="./easter&Passover.html">Easter & Passover</a></li>
+                <li><a href="#">Christmas & New Years</a></li>
+                <li><a href="#">Thanksgiving</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Health & Diet</a>
+              <ul class="dropdown-content">
+                <li><a href="#">Low Calorie</a></li>
+                <li><a href="#">Diabetic Friendly</a></li>
+                <li><a href="#">Plantbased</a></li>
+                <li><a href="#">Gluten Free</a></li>
+                <li><a href="#">Lactose free</a></li>
+              </ul>
+            </li>
+            <li><a href="./articles.html">Articles</a></li>
+            <li><a href="./aboutUs.html">About Us</a></li>
           </ul>
         </nav>
         <div class="headerIcons">
@@ -53,37 +88,40 @@
     <main>
       <div class="wrapper">
         <h2>Popular Recipes</h2>
-        <div class="containerPopularRecipes"></div>
+        <div class="containerPopularRecipes recipeList"></div>
 
         <h2>Quick & Easy Recipes</h2>
-        <div class="containerQuickAndEasy"></div>
+        <div class="containerQuickAndEasy recipeList"></div>
 
         <h2>Recipes for Easter & Passover</h2>
-        <div class="containerEasterAndPassover"></div>
+        <div class="containerEasterAndPassover recipeList"></div>
 
         <h2>Newest Articles</h2>
-        <div class="containerNewestArticles"></div>
+        <div class="containerNewestArticles recipeList"></div>
+      </div>
+      <div class="featured-video wrapper">
+        <h2>Check out one of our featured videos:</h2>
+        <iframe
+          width="500"
+          height="300"
+          src="https://www.youtube.com/embed/Or_anfIJOPs"
+        >
+        </iframe>
       </div>
     </main>
     <footer>
-      <button>About Us</button>
+      <button class="about-us">About Us</button>
       <div class="footer-content">
+        <div class="footer-icons">
+          <i class="fa-brands fa-facebook" style="color: #ffffff"></i>
+          <i class="fa-brands fa-instagram" style="color: #ffffff"></i>
+          <i class="fa-brands fa-x-twitter" style="color: #ffffff"></i>
+        </div>
         <div class="user-info">
-          <a href="#"
-            ><img src="./assets/images/icons/search.svg" alt="user-icon"
-          /></a>
-          <a href="#"
-            ><img src="./assets/images/icons/search.svg" alt="user-icon"
-          /></a>
-          <a href="#"
-            ><img src="./assets/images/icons/search.svg" alt="user-icon"
-          /></a>
           <p>Flavora 2024</p>
         </div>
         <div class="contact">
-          <a href="#"
-            ><img src="./assets/images/icons/search.svg" alt="user-icon"
-          /></a>
+          <i class="fa-regular fa-envelope" style="color: #ffffff"></i>
           <p>contact@flavora.com</p>
         </div>
       </div>

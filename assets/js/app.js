@@ -42,8 +42,10 @@ export function renderRecipes(recipes, containerEl, numToShow, includeContent) {
   containerEl.innerHTML = "";
 
   recipes.slice(0, numToShow).forEach((recipe) => {
-    const recipeEl = document.createElement("div");
+    const recipeEl = document.createElement("a");
     const titleEl = document.createElement("h3");
+
+    recipeEl.href = "/recipe.html?id=" + recipe.id;
 
     recipeEl.appendChild(titleEl);
     titleEl.textContent = recipe.acf.title;
@@ -74,6 +76,10 @@ export function renderRecipes(recipes, containerEl, numToShow, includeContent) {
 
       ingredientEl.appendChild(preperationLiEl);
       preperationEl.appendChild(ingredientLiEl);
+
+      // if includeContent add seperate class list
+      recipeEl.classList.add("recipeStylingIncludeContent");
+      recipeEl.classList.remove("recipeStyling");
     }
 
     if (recipe.acf.image) {
@@ -100,10 +106,15 @@ export function getPrivateRecipesByTags(tagId) {
     .catch((err) => console.log("error has occured!:", err));
 }
 
-//Tilføj includeContent boolean i renderRecipes, der enten er true (indholder alt indhold på recipes) eller false der kun giver få indhold
-
-// wrap en if omkring det indhold der skal være en del af includeContent
-
-//tilføj true eller false som renderRecipe parameter
-
-// hav default styling .recipeStyling til false (minimal content), men hav .includeContentRecipeStyling til true (includeContent), altså når man clicker ind på recipe
+export function getPrivateRecipeById(recipeId) {
+  return fetch(
+    baseUrl + `posts/${recipeId}?acf_format=standard&status=private`,
+    {
+      headers: {
+        Authorization: "Bearer " + sessionStorage.getItem("myToken"),
+      },
+    }
+  )
+    .then((res) => res.json())
+    .catch((err) => console.log("error has occured!:", err));
+}

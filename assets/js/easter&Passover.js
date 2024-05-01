@@ -5,7 +5,7 @@ getToken().then(() => {
   const recipesEl = document.querySelector(".containerSeperateQuickAndEasy");
 
   // Render recipes from different categories into corresponding containers
-  getPrivateRecipesByTags("9, 10").then((recipes) => {
-    renderRecipes(recipes, recipesEl, 1000);
+  getPrivateRecipesByTags("11").then((recipes) => {
+    renderRecipes(recipes, recipesEl, 5);
   });
 });
