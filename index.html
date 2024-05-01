@@ -7,19 +7,77 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="./assets/js/index.js" type="module" defer></script>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header>
-      <h2>Recipes</h2>
+      <div class="header-container">
+        <div class="logo">
+          <p>Flavora</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Meals</a></li>
+            <li><a href="#">Occasions</a></li>
+            <li><a href="#">Health & Diet</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </nav>
+        <div class="headerIcons">
+          <a href="#"
+            ><img src="./assets/images/icons/search.svg" alt="user-icon"
+          /></a>
+          <a href="#"
+            ><img src="./assets/images/icons/person.svg" alt="user-icon"
+          /></a>
+        </div>
+      </div>
     </header>
     <main>
       <div class="wrapper">
-       <div class="containerPopularRecipes"></div>
-       <div class="containerQuickAndEasy"></div>
-       <div class="containerEasterAndPassover"></div>
-       <div class="containerNewestArticles"></div>
-     </div>
+        <h2>Popular Recipes</h2>
+        <div class="containerPopularRecipes"></div>
+
+        <h2>Quick & Easy Recipes</h2>
+        <div class="containerQuickAndEasy"></div>
+
+        <h2>Recipes for Easter & Passover</h2>
+        <div class="containerEasterAndPassover"></div>
+
+        <h2>Newest Articles</h2>
+        <div class="containerNewestArticles"></div>
+      </div>
     </main>
+    <footer>
+      <button>About Us</button>
+      <div class="footer-content">
+        <div class="user-info">
+          <a href="#"
+            ><img src="./assets/images/icons/search.svg" alt="user-icon"
+          /></a>
+          <a href="#"
+            ><img src="./assets/images/icons/search.svg" alt="user-icon"
+          /></a>
+          <a href="#"
+            ><img src="./assets/images/icons/search.svg" alt="user-icon"
+          /></a>
+          <p>Flavora 2024</p>
+        </div>
+        <div class="contact">
+          <a href="#"
+            ><img src="./assets/images/icons/search.svg" alt="user-icon"
+          /></a>
+          <p>contact@flavora.com</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
