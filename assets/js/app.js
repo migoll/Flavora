@@ -38,39 +38,43 @@ export function getPrivateRecipesByCategory(categoryId) {
 }
 
 // render recipes
-export function renderRecipes(recipes, containerEl, numToShow) {
+export function renderRecipes(recipes, containerEl, numToShow, includeContent) {
   containerEl.innerHTML = "";
 
   recipes.slice(0, numToShow).forEach((recipe) => {
     const recipeEl = document.createElement("div");
-    const titleEl = document.createElement("h2");
-    const contentEl = document.createElement("div");
-    const aboutEl = document.createElement("p");
+    const titleEl = document.createElement("h3");
 
-    const ingredientEl = document.createElement("ul");
-    const preperationEl = document.createElement("ol");
-    const preperationLiEl = document.createElement("li");
-    const ingredientLiEl = document.createElement("li");
-
-    // add content to elements
+    recipeEl.appendChild(titleEl);
     titleEl.textContent = recipe.acf.title;
-    aboutEl.textContent = recipe.acf.about;
-    ingredientLiEl.textContent = recipe.acf.ingredients;
-    preperationLiEl.textContent = recipe.acf.preperation;
 
+    //tilføj styling til minimal content recipes
     recipeEl.classList.add("recipeStyling");
 
-    //append elements into containers
-    recipeEl.appendChild(titleEl);
-    recipeEl.appendChild(contentEl);
+    // hvis includeContent er true, render alt
+    if (includeContent) {
+      const contentEl = document.createElement("div");
+      const aboutEl = document.createElement("p");
+      const ingredientEl = document.createElement("ul");
+      const preperationEl = document.createElement("ol");
+      const preperationLiEl = document.createElement("li");
+      const ingredientLiEl = document.createElement("li");
 
-    
-    contentEl.appendChild(aboutEl);
-    contentEl.appendChild(ingredientEl);
-    contentEl.appendChild(preperationEl);
+      // add content to elements
+      aboutEl.textContent = recipe.acf.about;
+      ingredientLiEl.textContent = recipe.acf.ingredients;
+      preperationLiEl.textContent = recipe.acf.preperation;
 
-    ingredientEl.appendChild(preperationLiEl);
-    preperationEl.appendChild(ingredientLiEl);
+      //append elements into containers
+      recipeEl.appendChild(contentEl);
+
+      contentEl.appendChild(aboutEl);
+      contentEl.appendChild(ingredientEl);
+      contentEl.appendChild(preperationEl);
+
+      ingredientEl.appendChild(preperationLiEl);
+      preperationEl.appendChild(ingredientLiEl);
+    }
 
     if (recipe.acf.image) {
       const imageEl = document.createElement("img");
@@ -96,10 +100,10 @@ export function getPrivateRecipesByTags(tagId) {
     .catch((err) => console.log("error has occured!:", err));
 }
 
-
-
 //Tilføj includeContent boolean i renderRecipes, der enten er true (indholder alt indhold på recipes) eller false der kun giver få indhold
 
 // wrap en if omkring det indhold der skal være en del af includeContent
 
 //tilføj true eller false som renderRecipe parameter
+
+// hav default styling .recipeStyling til false (minimal content), men hav .includeContentRecipeStyling til true (includeContent), altså når man clicker ind på recipe
