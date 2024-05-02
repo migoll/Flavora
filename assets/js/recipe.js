@@ -6,9 +6,8 @@ import {
 } from "./app.js";
 
 getToken().then(() => {
-  const url = new URL(window.location.toString());
-
-  const recipeId = url.searchParams.get("id");
+  const urlParams = new URLSearchParams(window.location.search);
+  const recipeId = urlParams.get("id");
 
   const recipesEl = document.querySelector(".containerSeperateQuickAndEasy");
 
